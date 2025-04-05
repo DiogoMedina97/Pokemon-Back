@@ -11,7 +11,7 @@ export class PokeService {
   public async getPokemon(pokemon: string) {
     try {
       const response: AxiosResponse<PokemonData> = await firstValueFrom(
-        this.httpService.get(`https://pokeapi.co/api/v2/pokemon/${pokemon}`),
+        this.httpService.get(`${process.env.API_URL}/pokemon/${pokemon}`),
       );
 
       const { abilities } = response.data;
